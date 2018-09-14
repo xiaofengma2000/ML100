@@ -6,39 +6,11 @@ from sklearn import metrics
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 
-
-def first_set_result (row):
-   if row['ST1.1'] < row['ST1.2'] :
-      return 0
-   return 1
-
-rawdata=pandas.read_csv("../data/tennis/AusOpen-men-2013.csv")
-# rawdata=pandas.read_csv("../data/tennis/AusOpen-women-2013.csv")
-
-# data = rawdata[['Player1','Player2','Result','FSP.1','FSW.1','SSP.1','SSW.1','FSP.2','FSW.2','SSP.2','SSW.2']]
-rawdata['ST1_Result'] = rawdata.apply (lambda row: first_set_result (row),axis=1)
-data = rawdata[['Result','FSW.1','SSW.1','FSW.2','SSW.2','ST1_Result']]
-print(data)
-
-# sns.countplot(x="SSW.2", data=data, palette='hls')
-# plt.show()
-
-# print(data.groupby('Result').mean())
-
-# 1st set result vs final result
-# pandas.crosstab(data['ST1_Result'],data['Result']).plot(kind='bar')
-# plt.show()
-
-
-x = data.iloc[ :, 1:].values
-y = data.iloc[ :, 0].values
+from util import Tennis
+x,y = Tennis().data()
 
 print(x)
 print(y)
-
-onehotencoder = OneHotEncoder(categorical_features = [4])
-x = onehotencoder.fit_transform(x).toarray()
-print(x)
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 logreg = LogisticRegression()
