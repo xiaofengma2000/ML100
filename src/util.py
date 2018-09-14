@@ -5,7 +5,6 @@ from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
-
 class Tennis:
 
     def first_set_result(self, row):
@@ -40,6 +39,17 @@ class SocialAd:
 
         x[:, 0] = LabelEncoder().fit_transform(x[:, 0])
 
+        return x,y
+
+class SmsSpam:
+
+    def data(self):
+        # rawdata = pandas.read_csv("../data/smsspam/SMSSpamCollection", delimiter="	", header=None)
+        rawdata = pandas.read_table("../data/smsspam/SMSSpamCollection", header=None)
+        x = rawdata.iloc[:, 1].values
+        y = rawdata.iloc[:, 0].values
+
+        # y = LabelEncoder().fit_transform(y)
         return x,y
 
 class Report:
