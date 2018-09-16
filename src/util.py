@@ -1,5 +1,5 @@
 import pandas
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
@@ -33,12 +33,14 @@ class SocialAd:
 
     def data(self):
         data = pandas.read_csv("../data/006/Social_Network_Ads.csv")
-
-        x = data.iloc[:, 1:4].values
+        x = data.iloc[:, [2,3]].values
         y = data.iloc[:, -1].values
+        # x[:, 0] = LabelEncoder().fit_transform(x[:, 0])
+        return x,y
 
-        x[:, 0] = LabelEncoder().fit_transform(x[:, 0])
-
+    def scalerData(self):
+        x,y = self.data()
+        x = StandardScaler().fit_transform(x)
         return x,y
 
 class SmsSpam:
