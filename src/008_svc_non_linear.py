@@ -38,12 +38,3 @@ plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
-
-# TODO:
-# 0. draw SVM
-#      numpy.meshgrid()
-#      plt.contourf
-# 1. KNN
-# 2. SVM -- Linear
-# 3. SVM -- Non Linear
-
