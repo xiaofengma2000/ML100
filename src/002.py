@@ -2,7 +2,7 @@ import numpy,pandas
 from sklearn.preprocessing import Imputer
 import matplotlib.pyplot as plt
 
-data = pandas.read_csv("C:/work/python/100/data/002/studentscores.csv", na_values=['no info', '.'])
+data = pandas.read_csv("../data/002/studentscores.csv", na_values=['no info', '.'])
 X = data.iloc[:, 0:1].values
 Y = data.iloc[:, 1].values
 print("X : \n", X)

@@ -1,7 +1,7 @@
 import numpy,pandas
 from sklearn.preprocessing import Imputer
 
-data = pandas.read_csv("C:/work/python/100/data/001/Data.csv", na_values=['no info', '.'])
+data = pandas.read_csv("../data/001/Data.csv", na_values=['no info', '.'])
 print(data.head(0))
 print(data["Country"][0])
 print(data.head(4))

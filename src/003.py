@@ -3,7 +3,7 @@ from sklearn.preprocessing import Imputer
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-data = pandas.read_csv("C:/work/python/100/data/003/50_Startups.csv", na_values=['no info', '.', 0])
+data = pandas.read_csv("../data/003/50_Startups.csv", na_values=['no info', '.', 0])
 print("raw data ; \n", data)
 
 imp=Imputer(missing_values="NaN", strategy="mean")
