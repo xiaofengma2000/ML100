@@ -9,13 +9,13 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import tree
 
 from util import SocialAd,StudentScore
-x,y=SocialAd().data()
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1, random_state=0)
-classifier = tree.DecisionTreeClassifier()
+x,y=StudentScore().data()
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+classifier = tree.DecisionTreeRegressor()
 classifier.fit(x_train, y_train)
 y_pred = classifier.predict(x_test)
 
-from sklearn.metrics import classification_report
-print(classification_report(y_test, y_pred))
-
+plt.scatter(x_test, y_test, color='gray')
+plt.scatter(x_test, y_pred, color='lightblue')
+plt.show()

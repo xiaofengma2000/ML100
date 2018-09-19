@@ -5,6 +5,14 @@ from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 
+class StudentScore:
+
+    def data(self):
+        data = pandas.read_csv("../data/002/studentscores.csv")
+        x = data.iloc[:, [0]].values
+        y = data.iloc[:, -1].values
+        return x, y
+
 class Tennis:
 
     def first_set_result(self, row):
