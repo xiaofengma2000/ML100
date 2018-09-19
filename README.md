@@ -1,12 +1,44 @@
 # ML100
 
-Followed tutorial from https://github.com/Avik-Jain/100-Days-Of-ML-Code
+Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
 
-1-8 : coding
+* Day1
+  
+  data manipulation
 
-Day 9 : Black Box Machine Learning
+* Day2
+  
+  LinearRegression
 
-https://youtu.be/MsD28INtSv8
+* Day3
+  
+  More data manipulation
 
-Day 10 : Decision tree
+* Day4
+  
+  Logistic Regression
+
+* Day5
+  
+  K Neighbors
+
+* Day6
+  
+  SVM(Support Vector Machines)
+
+* Day7
+  
+  Text Classification
+
+* Day8
+  
+  SVM non-linear
+
+* Day9
+  
+    Black Box Machine Learning https://youtu.be/MsD28INtSv8
+
+* Day10
+  
+  Decision tree
 
