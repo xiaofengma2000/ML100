@@ -42,3 +42,7 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
   
   Decision tree
 
+* Day11
+  
+  Random Forest
+
