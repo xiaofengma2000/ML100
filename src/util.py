@@ -4,6 +4,43 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+import tarfile,os
+from six.moves import urllib
+
+def download(url, filename):
+    if(os.path.exists(filename)):
+        print("file already exists : ", filename)
+        return
+    path = os.path.dirname(filename)
+    if not os.path.isdir(path):
+        os.makedirs(path)
+    urllib.request.urlretrieve(url, filename)
+
+# def downloadTar(url, path, file):
+#     download(url, path, file)
+#     filename = os.path.join(path, file)
+#     tarf = tarfile.open(filename)
+#     tarf.extractall(path=path)
+#     tarf.close()
+
+def downloadTar(url, filename):
+    if(os.path.exists(filename)):
+        print("file already exists : ", filename)
+        return
+    download(url, filename)
+    path = os.path.dirname(filename)
+    tarf = tarfile.open(filename)
+    tarf.extractall(path=path)
+    tarf.close()
+
+class HousingPrice:
+
+    def data(self):
+        data = pandas.read_csv("../data/012/housing.csv")
+        x = data.iloc[:, [0]].values
+        y = data.iloc[:, -1].values
+        return data, x, y
+
 
 class StudentScore:
 

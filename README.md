@@ -46,3 +46,6 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
   
   Random Forest
 
+* Day12
+  
+  <Hands on ML with Scikit Lean and Tensorflow> Chapter 1
