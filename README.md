@@ -48,4 +48,12 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
 
 * Day12
   
-  <Hands on ML with Scikit Lean and Tensorflow> Chapter 1
+  Start "Hands on ML with Scikit Lean and Tensorflow" from today
+  
+  Chapter 1
+
+* Day13
+  
+  "Hands on ML with Scikit Lean and Tensorflow" Chapter 2
+
+    StratifiedShuffleSplit, Pipeline, FeatureUnion

@@ -1,11 +1,13 @@
 import pandas
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler, Imputer, LabelBinarizer
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import tarfile,os
 from six.moves import urllib
+import numpy as np
 
 def download(url, filename):
     if(os.path.exists(filename)):
@@ -37,10 +39,28 @@ class HousingPrice:
 
     def data(self):
         data = pandas.read_csv("../data/012/housing.csv")
-        x = data.iloc[:, [0]].values
-        y = data.iloc[:, -1].values
-        return data, x, y
+        imputer = Imputer(strategy="median")
+        data["total_bedrooms"] = imputer.fit_transform(data[["total_bedrooms"]])
 
+        data["income_cat"] = np.ceil(data["median_income"] / 1.5)
+        data["income_cat"].where(data["income_cat"] < 5, 5.0, inplace=True)
+
+        X = data.iloc[:, [0,1,2,3,4,5,6,7,9]]
+        y = data.iloc[:, [8]]
+
+        sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=0)
+        for train_index, test_index in sss.split(data, data["income_cat"]):
+            X_train = X.loc[train_index]
+            X_test = X.loc[test_index]
+            y_train = y.loc[train_index]
+            y_test = y.loc[test_index]
+
+        from sklearn_pandas import DataFrameMapper
+        mapper = DataFrameMapper([('ocean_proximity', LabelBinarizer())], df_out=True)
+        X_train = X_train.join(mapper.fit_transform(X_train))
+        X_test = X_test.join(mapper.fit_transform(X_test))
+
+        return X_train, X_test, y_train, y_test, data
 
 class StudentScore:
 
