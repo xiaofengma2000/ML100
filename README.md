@@ -57,3 +57,7 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
   "Hands on ML with Scikit Lean and Tensorflow" Chapter 2
 
     StratifiedShuffleSplit, Pipeline, FeatureUnion
+
+* Day14
+  
+  Cross validation, Algorithm choose
