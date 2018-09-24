@@ -61,3 +61,7 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
 * Day14
   
   Cross validation, Algorithm choose
+
+* Day15
+  
+  MNIST Classification

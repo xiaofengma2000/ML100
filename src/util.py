@@ -55,12 +55,7 @@ class HousingPrice:
             y_train = y.loc[train_index]
             y_test = y.loc[test_index]
 
-        from sklearn_pandas import DataFrameMapper
-        mapper = DataFrameMapper([('ocean_proximity', LabelBinarizer())], df_out=True)
-        X_train = X_train.join(mapper.fit_transform(X_train))
-        X_test = X_test.join(mapper.fit_transform(X_test))
-
-        return X_train, X_test, y_train, y_test, data
+            return X_train, X_test, y_train, y_test, data
 
 class StudentScore:
 

@@ -26,3 +26,6 @@ print("Labels:\t\t", some_labels)
 housing_predictions = best_reg.predict(some_data)
 mse = mean_squared_error(some_labels, housing_predictions)
 print("RMSE:\t\t", numpy.sqrt(mse))
+
+from sklearn.externals import joblib
+joblib.dump(best_reg, "../model/housing_rf_model")
