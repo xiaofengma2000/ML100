@@ -65,3 +65,7 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
 * Day15
   
   MNIST Classification
+
+* Day16
+  
+  ApacheSpamAssassin Classification
