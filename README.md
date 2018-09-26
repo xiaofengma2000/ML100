@@ -68,4 +68,9 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
 
 * Day16
   
-  ApacheSpamAssassin Classification
+  ApacheSpamAssassin Classification -- load
+
+* Day16
+  
+  ApacheSpamAssassin Classification -- LogisticRegression
+
