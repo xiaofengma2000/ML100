@@ -1,6 +1,6 @@
 # ML100
 
-Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
+## Start from https://github.com/Avik-Jain/100-Days-Of-ML-Code
 
 * Day1
   
@@ -46,31 +46,6 @@ Got the idea from https://github.com/Avik-Jain/100-Days-Of-ML-Code
   
   Random Forest
 
-* Day12
+## "Hands on ML with Scikit Lean and Tensorflow" from today
   
-  Start "Hands on ML with Scikit Lean and Tensorflow" from today
-  
-  Chapter 1
-
-* Day13
-  
-  "Hands on ML with Scikit Lean and Tensorflow" Chapter 2
-
-    StratifiedShuffleSplit, Pipeline, FeatureUnion
-
-* Day14
-  
-  Cross validation, Algorithm choose
-
-* Day15
-  
-  MNIST Classification
-
-* Day16
-  
-  ApacheSpamAssassin Classification -- load
-
-* Day16
-  
-  ApacheSpamAssassin Classification -- LogisticRegression
-
+  From 012**.py -- 
