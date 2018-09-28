@@ -1,5 +1,5 @@
 import pandas
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedShuffleSplit, train_test_split
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler, Imputer, LabelBinarizer
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
@@ -72,6 +72,10 @@ class Tennis:
             return 0
         return 1
 
+    def split_data(self):
+        X,y = data = self.data();
+        return train_test_split(X, y, test_size=0.2, random_state=20)
+
     def data(self):
         rawdata = pandas.read_csv("../data/tennis/AusOpen-men-2013.csv")
         # rawdata=pandas.read_csv("../data/tennis/AusOpen-women-2013.csv")
@@ -79,7 +83,7 @@ class Tennis:
         # data = rawdata[['Player1','Player2','Result','FSP.1','FSW.1','SSP.1','SSW.1','FSP.2','FSW.2','SSP.2','SSW.2']]
         rawdata['ST1_Result'] = rawdata.apply(lambda row: self.first_set_result(row), axis=1)
         data = rawdata[['Result', 'FSW.1', 'SSW.1', 'FSW.2', 'SSW.2', 'ST1_Result']]
-        print(data)
+        # print(data)
 
         x = data.iloc[:, 1:].values
         y = data.iloc[:, 0].values
