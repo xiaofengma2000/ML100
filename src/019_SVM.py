@@ -21,3 +21,15 @@ print_score(SVR(kernel="poly",degree=3, coef0=1, C=5))
 print("\nSVR -- RBF")
 print_score(SVR(kernel="rbf", gamma=5, C=0.001))
 
+mean = numpy.mean(y_train)
+#turn it to be classifier problem, high price and low price
+y_train = (y_train < mean).astype(numpy.int)
+
+print("\nLinearSVC")
+print_score(LinearSVC())
+print("\nSVC")
+print_score(SVC())
+print("\nSVC -- poly")
+print_score(SVC(kernel="poly", degree=3, coef0=5, C=5))
+print("\nSVC -- RBF")
+print_score(SVR(kernel="rbf", gamma=1, C=5))
