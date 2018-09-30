@@ -15,11 +15,21 @@ grid.fit(X_train, y_train)
 
 rs = ShuffleSplit(n_splits=100, test_size=0.9, random_state=42)
 scores = []
+y_pred_list = numpy.empty([100, len(y_test)])
+from sklearn.metrics import accuracy_score
 for index, (train_index, _) in enumerate(rs.split(X_train)):
     X_train_2 = [X_train[i] for i in train_index]
     y_train_2 = [y_train[i] for i in train_index]
     tree = clone(grid.best_estimator_) # DecisionTreeClassifier(max_leaf_nodes=4)
     tree.fit(X_train_2, y_train_2)
-    scores.append(f1_score(y_test, tree.predict(X_test)))
+    predict = tree.predict(X_test)
+    scores.append(accuracy_score(y_test, predict))
+    y_pred_list[index] = predict
 
-print(numpy.mean(scores))
+print("Mean value of 100 DecisionTreeClassifier : \t\t", numpy.mean(scores))
+
+from scipy.stats import mode
+y_pred_majority_votes, n_votes = mode(y_pred_list, axis=0)
+print("Combined 100 DecisionTreeClassifier : \t\t\t\t", accuracy_score(y_test, y_pred_majority_votes.reshape([-1])))
+
+from sklearn.ensemble import VotingClassifier
