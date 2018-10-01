@@ -48,4 +48,9 @@
 
 ## "Hands on ML with Scikit Lean and Tensorflow" from today
   
-  From 012**.py -- 
+  021 : Ensamble
+  
+  022 : De Dimintion
+  
+  023 : Tensflow
+  

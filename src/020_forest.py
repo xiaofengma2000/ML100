@@ -30,6 +30,6 @@ print("Mean value of 100 DecisionTreeClassifier : \t\t", numpy.mean(scores))
 
 from scipy.stats import mode
 y_pred_majority_votes, n_votes = mode(y_pred_list, axis=0)
-print("Combined 100 DecisionTreeClassifier : \t\t\t\t", accuracy_score(y_test, y_pred_majority_votes.reshape([-1])))
+print("Combined 100 DecisionTreeClassifier : \t\t\t\t", accuracy_score(y_test, y_pred_majority_votes[0]))
 
 from sklearn.ensemble import VotingClassifier
