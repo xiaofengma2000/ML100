@@ -54,3 +54,7 @@
   
   023 : Tensflow
   
+  Tensorflow not able to install with Python3.7, have to downgrade to 3.6 in order to get it installed via pip
+  
+  
+  
