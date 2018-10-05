@@ -11,10 +11,11 @@ y_pred = tf.matmul(X, theta, name="predictions")
 error = y_pred - y
 mse = tf.reduce_mean(tf.square(error), name="mse")
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01)
-n_epochs = 1000
+config = tf.ConfigProto()
+config.log_device_placement = True
 init = tf.global_variables_initializer()
 training_op = optimizer.minimize(mse)
-with tf.Session() as sess:
+with tf.Session(config=config) as sess:
     init.run()
     sess.run(training_op, feed_dict={X: X_train, y: y_train.reshape(-1,1)})
     print(theta.eval())
