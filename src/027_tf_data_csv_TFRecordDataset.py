@@ -11,7 +11,7 @@ def _extract_features(example):
         "Purchased": tf.VarLenFeature(tf.int64)
     }
     parsed_example = tf.parse_single_example(example, features)
-    return tf.sparse_tensor_to_dense(parsed_example["Age"]), tf.sparse_tensor_to_dense(parsed_example["Purchased"])
+    return tf.sparse_tensor_to_dense(parsed_example["User ID"]), tf.sparse_tensor_to_dense(parsed_example["Purchased"])
 
 
 dataset = tf.data.TFRecordDataset('../data/006/Social_Network_Ads.tfrecords')
