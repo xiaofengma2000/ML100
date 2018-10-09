@@ -9,7 +9,8 @@ with tf.name_scope("place"):
 
 with tf.name_scope("DNN"):
     hidden1 = tf.layers.dense(X, 100, activation=tf.nn.relu, name="hidden1")
-    hidden2 = tf.layers.dense(hidden1, 80, activation=tf.nn.relu, name="hidden2")
+    drop1 = tf.layers.dropout(hidden1, rate=0.8, name="drop1")
+    hidden2 = tf.layers.dense(drop1, 80, activation=tf.nn.relu, name="hidden2")
     logits = tf.layers.dense(hidden2, 1, name="outputs")
 
 with tf.name_scope("loss"):
@@ -22,8 +23,10 @@ with tf.name_scope("train"):
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    sess.run(training_op, feed_dict={X: X_train, y: y_train})
-    loss_val = loss.eval(feed_dict={X: X_train, y: y_train})
-    print(loss_val)
-    loss_val = loss.eval(feed_dict={X: X_test, y: y_test})
-    print(loss_val)
+    for i in range(2):
+        sess.run(training_op, feed_dict={X: X_train, y: y_train})
+        loss_val = loss.eval(feed_dict={X: X_train, y: y_train})
+        print('epoch #', i)
+        print(loss_val)
+        loss_val = loss.eval(feed_dict={X: X_test, y: y_test})
+        print(loss_val)
