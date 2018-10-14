@@ -58,3 +58,9 @@
   
   024 : Tensorflow save/restore
   
+  Hands on ML with Scikit Lean and Tensorflow book finished today
+
+## Tensor Floe Vector Representations of Words tutorial
+
+
+  
