@@ -60,7 +60,7 @@
   
   Hands on ML with Scikit Lean and Tensorflow book finished today
 
-## Tensor Floe Vector Representations of Words tutorial
+## Tensor Flow Vector Representations of Words tutorial
 
 
   
